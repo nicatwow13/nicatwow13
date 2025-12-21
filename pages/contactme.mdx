@@ -1,0 +1,75 @@
+# Contact Me
+
+import styles from '../components/counters.module.css'
+import { FaPhoneAlt, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
+
+export const Contact = () => {
+  return (
+    <div
+      className={styles.component}
+      style={{
+        display: 'grid',
+        gap: '12px',
+        padding: '18px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))'
+      }}
+    >
+      <a
+        href="tel:+16474925115"
+        style={{ display: 'flex', gap: '12px', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+        className={styles.job_university}
+      >
+        <div style={{ width: 40, height: 40, borderRadius: '12px', display: 'grid', placeItems: 'center', background: 'rgba(59,130,246,0.12)' }}>
+          <FaPhoneAlt className={styles.skill_icon} aria-hidden />
+        </div>
+        <div>
+          <p className={styles.date} style={{ margin: 0 }}>Phone</p>
+          <span>+1 (647) 492-5115</span>
+        </div>
+      </a>
+
+      <a
+        href="mailto:malik.johnson.w90@gmail.com"
+        style={{ display: 'flex', gap: '12px', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+        className={styles.job_university}
+      >
+        <div style={{ width: 40, height: 40, borderRadius: '12px', display: 'grid', placeItems: 'center', background: 'rgba(16,185,129,0.14)' }}>
+          <MdEmail className={styles.skill_icon} aria-hidden />
+        </div>
+        <div>
+          <p className={styles.date} style={{ margin: 0 }}>Email</p>
+          <span>malik.johnson.w90@gmail.com</span>
+        </div>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/malik-johnson-351458366/"
+        target="_blank"
+        rel="noreferrer"
+        style={{ display: 'flex', gap: '12px', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+        className={styles.job_university}
+      >
+        <div style={{ width: 40, height: 40, borderRadius: '12px', display: 'grid', placeItems: 'center', background: 'rgba(59,130,246,0.12)' }}>
+          <FaLinkedin className={styles.skill_icon} aria-hidden />
+        </div>
+        <div>
+          <p className={styles.date} style={{ margin: 0 }}>LinkedIn</p>
+          <span>linkedin.com/in/malik-johnson-351458366</span>
+        </div>
+      </a>
+
+      <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+        <div style={{ width: 40, height: 40, borderRadius: '12px', display: 'grid', placeItems: 'center', background: 'rgba(234,179,8,0.18)' }}>
+          <FaMapMarkerAlt className={styles.skill_icon} aria-hidden />
+        </div>
+        <div>
+          <p className={styles.date} style={{ margin: 0 }}>Location</p>
+          <span className={styles.job_university}>Toronto, ON, Canada</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<Contact />

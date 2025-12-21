@@ -1,0 +1,290 @@
+import { useState } from "react"
+import styles from "../components/counters.module.css"
+import {
+  FaAws,
+  FaJava,
+  FaNodeJs,
+  FaPython,
+  FaReact,
+  FaStripe
+} from "react-icons/fa"
+import { FiChevronUp, FiTool } from "react-icons/fi"
+import { HiOutlineCubeTransparent } from "react-icons/hi"
+import { MdDesignServices } from "react-icons/md"
+import {
+  SiAmazondynamodb,
+  SiExpress,
+  SiGraphql,
+  SiMongodb,
+  SiNestjs,
+  SiNextdotjs,
+  SiShopify,
+  SiTailwindcss
+} from "react-icons/si"
+import { TbApi, TbTruckDelivery } from "react-icons/tb"
+import Counters from "../components/counters"
+
+export function SkillTag({ icon: Icon, label }) {
+  return (
+    <button type="button" className={styles.skill_badge} disabled aria-disabled="true">
+      <Icon className={styles.skill_icon} aria-hidden />
+      <span>{label}</span>
+    </button>
+  )
+}
+
+export function Experience1() {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className={styles.component}>
+      <div onClick={() => setOpen(!open)} className={styles.experience_top_div}>
+        <p className={styles.date}>05/2021 - 11/2025 - Toronto, ON, Canada</p>
+        <p className={styles.job_university}>
+          <span className={styles.job_title}>Senior Full Stack Engineer</span> at{" "}
+          <span className={styles.university_name}>BAI via VelloWeb</span>
+        </p>
+        <div className={styles.skill_row}>
+          <SkillTag icon={FaReact} label="React" />
+          <SkillTag icon={SiNextdotjs} label="Next.js" />
+          <SkillTag icon={SiGraphql} label="GraphQL" />
+          <SkillTag icon={SiMongodb} label="MongoDB" />
+          <SkillTag icon={FaNodeJs} label="Node.js" />
+          <SkillTag icon={SiExpress} label="Express.js" />
+        </div>
+      </div>
+      {open && (
+        <div className={styles.experience_detail}>
+          <ul>
+            <li>
+              Built a SaaS platform for banking financial services from scratch using React, Next.js, GraphQL, and a headless CMS with SEO-first architecture.
+            </li>
+            <li>
+              Developed Shopify plugins for financial services training, research, and trends using React and Node.js/Express with Solana.
+            </li>
+            <li>Implemented the frontend SDK with React/Next.js + TypeScript and integrated Shopify Storefront API for LMS items.</li>
+            <li>Ensured cross-browser compatibility across Safari, Firefox, Chrome, and IE.</li>
+            <li>Built authentication with Node.js, Express, and MongoDB (bcrypt, RBAC, JWT) for secure access control.</li>
+            <li>Integrated headless CMS content via GraphQL for structured, dynamic delivery.</li>
+            <li>Set up 20+ micro projects, CI/CD pipelines, and testing workflows.</li>
+          </ul>
+          <div className={styles.less_div}>
+            <button onClick={() => setOpen(false)} className={styles.less_button}>
+              <FiChevronUp aria-hidden /> Hide
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export function Experience2() {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className={styles.component}>
+      <div onClick={() => setOpen(!open)} className={styles.experience_top_div}>
+        <p className={styles.date}>01/2020 - 04/2021 - Toronto, ON, Canada</p>
+        <p className={styles.job_university}>
+          <span className={styles.job_title}>Senior Full Stack Engineer</span> at{" "}
+          <span className={styles.university_name}>Instacart</span>
+        </p>
+        <div className={styles.skill_row}>
+          <SkillTag icon={SiShopify} label="Shopify" />
+          <SkillTag icon={TbApi} label="Shopify APIs" />
+          <SkillTag icon={MdDesignServices} label="UX/UI" />
+          <SkillTag icon={HiOutlineCubeTransparent} label="Headless CMS" />
+          <SkillTag icon={TbTruckDelivery} label="Delivery APIs" />
+        </div>
+      </div>
+      {open && (
+        <div className={styles.experience_detail}>
+          <ul>
+            <li>
+              Built high-performance Shopify storefront components for partner microsites, improving load speed by 35% and optimizing conversion funnels.
+            </li>
+            <li>Created Shopify 2.0 section templates and Liquid modules, cutting design-to-launch time from 2 weeks to 3 days.</li>
+            <li>Integrated Shopify APIs with fulfillment and pricing systems for real-time availability, dynamic promos, and multi-region support.</li>
+            <li>Ensured cross-browser compatibility across Safari, Firefox, Chrome, and IE.</li>
+            <li>Partnered with UX/product/data to ship A/B-tested UI improvements, lifting add-to-cart rate by 12%.</li>
+            <li>Integrated headless CMS via GraphQL for structured content.</li>
+            <li>Implemented advanced analytics tracking (GA, Segment, custom events) and dashboards for attribution and ROI.</li>
+            <li>Mentored junior developers and led code reviews.</li>
+          </ul>
+          <div className={styles.less_div}>
+            <button onClick={() => setOpen(false)} className={styles.less_button}>
+              <FiChevronUp aria-hidden /> Hide
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export function Experience3() {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className={styles.component}>
+      <div onClick={() => setOpen(!open)} className={styles.experience_top_div}>
+        <p className={styles.date}>12/2018 - 12/2019 - California, US</p>
+        <p className={styles.job_university}>
+          <span className={styles.job_title}>Full Stack Engineer</span> at{" "}
+          <span className={styles.university_name}>Ritual Wellness and Fitness Services</span>
+        </p>
+        <div className={styles.skill_row}>
+          <SkillTag icon={SiShopify} label="Shopify Liquid" />
+          <SkillTag icon={SiShopify} label="Shopify CLI" />
+          <SkillTag icon={FaNodeJs} label="Node.js" />
+          <SkillTag icon={SiNestjs} label="NestJS" />
+          <SkillTag icon={FaStripe} label="Stripe" />
+        </div>
+      </div>
+      {open && (
+        <div className={styles.experience_detail}>
+          <ul>
+            <li>Built and customized e-commerce storefronts with Shopify Liquid and CLI.</li>
+            <li>Developed responsive UI animations with HTML5, SCSS, and GSAP.</li>
+            <li>Achieved 98% SEO scores via best practices and optimized integrations.</li>
+            <li>Maintained custom Shopify plugins with Node.js, NestJS, and Admin API.</li>
+            <li>Implemented Shopify Functions and secure payments (Shopify Payments, Stripe, PayPal) for checkout/discount flows.</li>
+            <li>Integrated headless CMS via GraphQL for dynamic, structured content.</li>
+            <li>Managed AWS EC2/RDS for scalable deployments tied to Shopify.</li>
+          </ul>
+          <div className={styles.less_div}>
+            <button onClick={() => setOpen(false)} className={styles.less_button}>
+              <FiChevronUp aria-hidden /> Hide
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export function Experience4() {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className={styles.component}>
+      <div onClick={() => setOpen(!open)} className={styles.experience_top_div}>
+        <p className={styles.date}>07/2017 - 11/2018 - Guelph, ON, Canada</p>
+        <p className={styles.job_university}>
+          <span className={styles.job_title}>Full Stack Software Engineer</span> at{" "}
+          <span className={styles.university_name}>Well.ca Retail</span>
+        </p>
+        <div className={styles.skill_row}>
+          <SkillTag icon={SiShopify} label="Shopify Liquid" />
+          <SkillTag icon={SiTailwindcss} label="Tailwind CSS" />
+          <SkillTag icon={FaNodeJs} label="Node/Express" />
+          <SkillTag icon={FaReact} label="JavaScript UI" />
+          <SkillTag icon={FaAws} label="AWS Elasticsearch" />
+        </div>
+      </div>
+      {open && (
+        <div className={styles.experience_detail}>
+          <ul>
+            <li>Built custom Shopify themes with Liquid and TailwindCSS.</li>
+            <li>Developed private Shopify apps with Node.js/Express for subscriptions and personalization.</li>
+            <li>Designed REST APIs for backend services and integrations.</li>
+            <li>Created advanced 2D/3D visualizations for analytics dashboards.</li>
+            <li>Built a product search engine using AWS Elasticsearch tied to Shopify.</li>
+            <li>Integrated Stripe and Shopify Payments for complex billing flows.</li>
+          </ul>
+          <div className={styles.less_div}>
+            <button onClick={() => setOpen(false)} className={styles.less_button}>
+              <FiChevronUp aria-hidden /> Hide
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export function Experience5() {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className={styles.component}>
+      <div onClick={() => setOpen(!open)} className={styles.experience_top_div}>
+        <p className={styles.date}>07/2016 - 07/2017 - Toronto, ON, Canada</p>
+        <p className={styles.job_university}>
+          <span className={styles.job_title}>Software Developer</span> at{" "}
+          <span className={styles.university_name}>Amazon Web Services</span>
+        </p>
+        <div className={styles.skill_row}>
+          <SkillTag icon={FaJava} label="Java" />
+          <SkillTag icon={FaPython} label="Python" />
+          <SkillTag icon={FaNodeJs} label="Node.js/Express.js" />
+          <SkillTag icon={FaAws} label="AWS Lambda" />
+          <SkillTag icon={SiAmazondynamodb} label="DynamoDB" />
+          <SkillTag icon={FaAws} label="Elastic Beanstalk" />
+        </div>
+      </div>
+      {open && (
+        <div className={styles.experience_detail}>
+          <ul>
+            <li>Developed 50+ REST APIs using Java, Node.js/Express.js, and Python.</li>
+            <li>Worked across Lambda, DynamoDB, SQS, CloudWatch, EC2, Elastic Beanstalk, and S3.</li>
+            <li>Collaborated on maintenance of low-voltage switchboard breakers within RCM strategy.</li>
+          </ul>
+          <div className={styles.less_div}>
+            <button onClick={() => setOpen(false)} className={styles.less_button}>
+              <FiChevronUp aria-hidden /> Hide
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export function Experience6() {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className={styles.component}>
+      <div onClick={() => setOpen(!open)} className={styles.experience_top_div}>
+        <p className={styles.date}>01/2016 - 06/2016 - Toronto, ON, Canada</p>
+        <p className={styles.job_university}>
+          <span className={styles.job_title}>Software Developer Intern</span> at{" "}
+          <span className={styles.university_name}>Amazon Web Services</span>
+        </p>
+        <div className={styles.skill_row}>
+          <SkillTag icon={FiTool} label="Software innovation" />
+          <SkillTag icon={TbApi} label="Process automation" />
+          <SkillTag icon={FaNodeJs} label="Node.js/Express.js" />
+          <SkillTag icon={FaAws} label="Platform services" />
+        </div>
+      </div>
+      {open && (
+        <div className={styles.experience_detail}>
+          <ul>
+            <li>Focused on software innovation, process automation, and S3 services.</li>
+            <li>Ensured durability and efficiency across fleet lifecycle operations.</li>
+            <li>Automated data retrieval via API-driven pull requests.</li>
+            <li>Built a Node.js/Express toolkit with parsers and API calls for patching flows.</li>
+          </ul>
+          <div className={styles.less_div}>
+            <button onClick={() => setOpen(false)} className={styles.less_button}>
+              <FiChevronUp aria-hidden /> Hide
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default function ExperiencePage() {
+  return (
+    <>
+      <h1>Experience</h1>
+      <Experience1 />
+      <Experience2 />
+      <Experience3 />
+      <Experience4 />
+      <Experience5 />
+      <Experience6 />
+      <h2>External Component</h2>
+      <Counters />
+    </>
+  )
+}

@@ -1,0 +1,68 @@
+.nav-sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.75);
+  color: inherit;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.nav-sidebar-toggle:hover {
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+  transform: translateY(-1px);
+}
+
+.nav-sidebar-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.16);
+}
+
+.nav-sidebar-toggle .nav-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.dark .nav-sidebar-toggle {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.65);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.dark .nav-sidebar-toggle:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.dark .nav-sidebar-toggle:active {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-item-icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+}
+
+/* Collapsible sidebar */
+body.sidebar-collapsed .nextra-sidebar-container {
+  width: 74px !important;
+  min-width: 74px !important;
+  transition: width 0.2s ease;
+}
+body.sidebar-collapsed .nextra-menu-desktop {
+  align-items: center;
+}
+body.sidebar-collapsed .sidebar-label {
+  display: none;
+}
+body.sidebar-collapsed .sidebar-item-icon {
+  display: inline-flex;
+}
+body.sidebar-collapsed .nextra-content {
+  padding-left: max(env(safe-area-inset-left), 1.5rem);
+}

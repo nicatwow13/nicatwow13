@@ -1,0 +1,181 @@
+.counter {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin: 12px 0 0;
+}
+
+.component {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fb 45%, #eef2f7 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+:global(.dark) .component {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, #0b1220 0%, #0a101c 45%, #060910 100%);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+}
+
+.experience_top_div {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.date {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+:global(.dark) .date {
+  color: #cbd5e1;
+}
+
+.job_title {
+  margin-top: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.university_name {
+  color: #0f172a;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.job_university {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #0f172a;
+}
+
+:global(.dark) .university_name {
+  color: #e2e8f0;
+}
+
+:global(.dark) .job_university {
+  color: #f1f5f9;
+}
+
+.skill_row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.skill_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(120deg, rgba(59, 130, 246, 0.12), rgba(16, 185, 129, 0.1));
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #0f172a;
+  transition: all 0.18s ease;
+  cursor: default;
+  pointer-events: none;
+}
+
+.skill_badge:hover {
+  border-color: rgba(59, 130, 246, 0.35);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+  transform: translateY(-1px);
+}
+
+.skill_icon {
+  width: 16px;
+  height: 16px;
+  color: #2563eb;
+}
+
+:global(.dark) .skill_badge {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(120deg, rgba(59, 130, 246, 0.32), rgba(14, 165, 233, 0.22));
+  color: #e2e8f0;
+}
+
+:global(.dark) .skill_icon {
+  color: #8bafff;
+}
+
+.experience_detail {
+  margin-top: 10px;
+  color: #0f172a;
+}
+
+:global(.dark) .experience_detail {
+  color: #e2e8f0;
+}
+
+.highlight_item {
+  margin-left: 16px;
+}
+
+.highlight_body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.code_block {
+  margin: 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: #0f172a0d;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-x: auto;
+}
+
+:global(.dark) .code_block {
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #e2e8f0;
+}
+
+.less_button {
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+:global(.dark) .less_button {
+  color: #e2e8f0;
+}
+
+.less_div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact_div {
+  margin: 20px 20px;
+}
+
+.contact_div p {
+  font-size: 20px;
+}
+
+.contact_div p span {
+  margin-right: 5px;
+}
+
+.contact_div ul {
+  font-size: 13px;
+}
