@@ -1,0 +1,82 @@
+# AWS Cognito Setting
+
+## AWS Cognito Overview
+
+Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily. Amazon Cognito scales to millions of users and supports sign-in with social identity providers, such as Facebook, Google, and Amazon, and enterprise identity providers via SAML 2.0.
+
+Let’s understand what is AWS Cognito User Pool and AWS Cognito Federal Identity:
+
+- AWS Cognito User Pool
+- AWS Cognito Federated Identities
+
+## 1. AWS Cognito User Pool
+
+- Sign in/up to your AWS account from the Services drop-down menu select Cognito then you will see the following screen. Click to the User Pools Button in the left sidebar.
+
+![Sign in/up to your AWS account from the Services drop-down menu select Cognito then you will see the following screen. Click to the User Pools Button in the left sidebar.](public/getting-start1.webp)
+
+- Click on the Create user pool button.
+
+![Click on the Create user pool button.](public/getting-start2.webp)
+
+- Select Authentication Providers Type
+
+![Select Authentication Providers Type](public/getting-start3.webp)
+
+- Select Password policy mode and Multi-factor authentication type
+
+![Select Password policy mode and Multi-factor authentication type](public/getting-start4.webp)
+
+- Select MFA methods(Authenticator apps or SMS message)
+
+![Select MFA methods(Authenticator apps or SMS message)](public/getting-start5.webp)
+
+- Choose the attributes, and click next button.
+
+![Choose the attributes, and click next button.](public/getting-start6.webp)
+
+- Select Email provider, and click next button.
+
+![Select Email provider, and click next button.](public/getting-start7.webp)
+
+- Enter User pool name.
+
+![Enter User pool name.](public/getting-start8.webp)
+
+- Check Use the Cognito Hosted UI, enter a domain prefix.
+
+![Check Use the Cognito Hosted UI, enter a domain prefix.](public/getting-start9.webp)
+
+- Enter a friendly name for yhour app client, and enter a callback URLs.
+
+![Enter a friendly name for yhour app client, and enter a callback URLs.](public/getting-start10.webp)
+
+- You will see the user pool has been created as shown below in the screenshot.
+
+![You will see the user pool has been created as shown below in the screenshot.](public/getting-start11.webp)
+
+- Finally you can check the all of authentication work flow in the Cognito Hosted UI.
+
+![Finally you can check the all of authentication work flow in the Cognito Hosted UI.](public/getting-start12.webp)
+
+## 2. AWS Cognito Federated Identities
+
+Identity pools are the containers that Cognito Identity uses to keep your apps’ federated identities organized. Identity Pool associates federated identities from social identity providers with a unique user-specific identifier. Identity Pools do not store any user profiles. An identity pool can be associated with one or many apps. If you use two different identity pools for two apps then the same end user will have a different unique identifier in each Identity Pool.
+
+- Click a Create new identity pool button as shown in the below screenshot.
+
+![Click a Create new identity pool button as shown in the below screenshot.](public/getting-start13.webp)
+
+- Enter the User Pool Id and App client id as shown in the below screenshot.
+
+![Enter the User Pool Id and App client id as shown in the below screenshot.](public/getting-start14.webp)
+
+- Enter the User Pool Id and App client id as shown in the below screenshot.
+
+![Enter the User Pool Id and App client id as shown in the below screenshot.](public/getting-start15.webp)
+
+- Then you can get the Identity pool Id as shown in the below screenshot
+
+![Then you can get the Identity pool Id as shown in the below screenshot](public/getting-start16.webp)
+
+I just done with AWS Cognito User Pool, Cognito Federated Identities setup.

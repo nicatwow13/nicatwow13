@@ -66,3 +66,34 @@ body.sidebar-collapsed .sidebar-item-icon {
 body.sidebar-collapsed .nextra-content {
   padding-left: max(env(safe-area-inset-left), 1.5rem);
 }
+
+/* Keep sidebar items expanded and disable collapsing */
+.nextra-sidebar-container details > summary {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Keep icons visible when sidebar is collapsed via navbar toggle */
+.sidebar-collapsed .nx-transform-gpu.nx-overflow-hidden {
+  height: auto !important;
+}
+.sidebar-collapsed .nextra-menu-desktop {
+  align-items: center;
+}
+.sidebar-collapsed .sidebar-label {
+  display: none;
+}
+.sidebar-collapsed .sidebar-item-icon {
+  display: inline-flex;
+}
+
+/* Always show code block copy buttons */
+.nextra-code-block .nx-opacity-0 {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.nextra-code-block [title="Copy code"],
+.nextra-code-block [data-copy-button] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}

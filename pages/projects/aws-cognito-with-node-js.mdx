@@ -1,6 +1,72 @@
-import ProjectDetail from "../../components/ProjectDetail"
-import { projects } from "../../lib/projectsData.js"
+import styles from "../../components/counters.module.css"
 
 # AWS Cognito with Node.js
 
-<ProjectDetail project={projects.find((p) => p.slug === "aws-cognito-with-node-js")} />
+Cognito is a user management service by Amazon Web Services. It is a very interesting option for those who wish to quickly focus on coding your app instead of having to set up the boring sign-up/authentication flow and all that comes with user management, like password recovery. Besides it, Cognito is free to up to 50 000 active users, which is great for starting businesses. It works by grouping users the way your business need, giving them roles, enforcing minimum password strength, two-factor authentication (2FA), and finally returning three tokens (two of them are the well-known JWT). The best thing about is it supports all major web platforms and mobile. SDKs are available for Obj-C, java, and Swift as well.
+
+I aim to give you an overview of what AWS Cognito solves and how to set Cognito User Pools, and how to use it for user login, signup, MFA, forgot password, change password, logout, and how to use it as your app?s authentication provider, as well as explain how to use the concepts of Id, Access, and Refresh Tokens.
+
+I will also explain a problem we worked on and take a look at the library used ([amazon-cognito-identity-js](https://www.npmjs.com/package/amazon-cognito-identity-js)).
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gap: "16px",
+    marginTop: "20px",
+  }}
+>
+  {[
+    {
+      date: "Jun 2023",
+      title: "AWS Cognito Setting",
+      href: "/projects/aws-cognito-with-node-js/aws-cognito-setting",
+    },
+    {
+      date: "Jun 2023",
+      title: "AWS Cognito Sign Up",
+      href: "/projects/aws-cognito-with-node-js/aws-cognito-sign-up",
+    },
+    {
+      date: "Jun 2023",
+      title: "AWS Cognito Sign Up Confirm",
+      href: "/projects/aws-cognito-with-node-js/aws-cognito-sign-up-confirm",
+    },
+    {
+      date: "Jun 2023",
+      title: "AWS Cognito SignIn",
+      href: "/projects/aws-cognito-with-node-js/aws-cognito-sign-in",
+    },
+  ].map((card) => (
+    <div key={card.title} className={styles.component}>
+      <div className={styles.experience_top_div}>
+        <p className={styles.date}>{card.date}</p>
+        <p className={styles.job_university}>
+          <span className={styles.job_title}>{card.title}</span>
+        </p>
+        <div className={styles.skill_row}>
+          {["Cognito User Pool", "AWS", "AWS Cognito"].map((skill) => (
+            <span key={`${card.title}-${skill}`} className={styles.skill_badge}>
+              <span style={{ width: 10, height: 10, background: "currentColor", borderRadius: "999px" }} aria-hidden />
+              <span>{skill}</span>
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className={styles.less_div}>
+        <a
+          href={card.href}
+          className={styles.less_button}
+          style={{ textDecoration: "underline", padding: "4px 0" }}
+        >
+          View more
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+
+
+

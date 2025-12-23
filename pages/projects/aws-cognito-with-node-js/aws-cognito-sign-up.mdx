@@ -1,0 +1,166 @@
+# AWS Cognito Sign Up
+
+Hope you have already set up the Node.JS environment on your system and exist Express.js project and the AWS Cognito on AWS side, if didn't set up the AWS Cognito, then use the following tutorial to [AWS Cognito setting](/projects/aws-cognito-with-node-js/aws-cognito-setting). Also, you can download the full codebase here if you are interested in this AWS Cognito Sign Up.
+
+## Set Cognito environment variables
+
+Then we will use these environment variables in the Node project.
+
+- Add these environment variables to .env and example.env files
+
+```env filename="example.env" copy
+AWS_COGNITO_REGION=
+AWS_COGNITO_USER_POOL_ID= 
+AWS_COGNITO_CLIENT_ID= 
+AWS_COGNITO_IDENTITY_POOL_ID=
+```
+
+```env filename=".env" copy
+AWS_COGNITO_REGION=ca-central-1
+AWS_COGNITO_USER_POOL_ID=ca-central-1_oOXMEFtX3 
+AWS_COGNITO_CLIENT_ID=54ado14mc8n0cmnm5s70vsis63 
+AWS_COGNITO_IDENTITY_POOL_ID=ca-central-1:18ec2ec3-9e0a-474c-9d82-eb811b028e83
+```
+
+## Add a Sign Up Route in the Node.js Project
+
+- Add [/api/auth/signup](https://github.com/elie-tdev/express-amazon-cognito/blob/cognito-signup/routes/auth.routes.js) route in existing your node.js project, if don't use [validateSignupRequest](https://github.com/elie-tdev/express-amazon-cognito/blob/cognito-signup/middleware/validateSignupRequest.js) middleware, then you can remove the `verifySignUp` middleware.
+
+```js filename="auth.routes.js" copy
+import controller from '../controllers/auth.controller';
+import validateSignupRequest from '../middleware/validateSignupRequest';
+ 
+export default (app) => {
+  app.post('/api/auth/signup', validateSignupRequest, controller.signup);
+};
+```
+
+## Add a Sign Up Function in the controller
+
+- Add a [Sign Up Function](https://github.com/elie-tdev/express-amazon-cognito/blob/cognito-signup/controllers/auth.controller.js) in the controller.
+
+```js filename="auth.controller.js" copy
+// User Signup
+import CognitoIdentity from '../services/cognito';
+ 
+const CognitoIdentityService = CognitoIdentity();
+ 
+const signup = async (req, res) => {
+  // Signup logic here
+  // ...
+ 
+  const { email, password, givenname, familyname } = req.body;
+ 
+  const cognitoParams = {
+    username: email,
+    password,
+    givenname,
+    familyname,
+  };
+ 
+  try {
+    const cognitoUser = await new Promise((resolve, reject) => {
+      CognitoIdentityService.signup(cognitoParams, (err, user) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(user);
+        }
+      });
+    });
+ 
+    res.status(200).send({
+      success: true,
+      message: 'User registered successfully',
+      user: cognitoUser,
+    });
+  } catch (error) {
+    res.status(400).send({ success: false, message: error.message, error });
+  }
+};
+ 
+export default {
+  signup,
+};
+```
+
+## Add a Sign Up in the services
+
+And then we need to add the AWS Cognito user authentication service to the services folder. I will use the amazon-cognito-identity-js for the service. If you don't understand how to work the service, please check the service folder structure on my [git repository](https://github.com/elie-tdev/express-amazon-cognito/blob/cognito-signup/services/cognito/methods/signup.js).
+
+```js filename="signup.js" copy
+import {
+  CognitoUserPool,
+  CognitoUserAttribute,
+} from 'amazon-cognito-identity-js';
+ 
+const attributes = (key, value) => ({
+  Name: key,
+  Value: value,
+});
+ 
+/**
+ * Signup user
+ *
+ * @param {poolData} poolData
+ * @param {{ username: string, password: string, givenname: string, familyname: string, }} body
+ * @param {*} callback
+ */
+ 
+const signup = (poolData, body, callback) => {
+  const userPool = new CognitoUserPool(poolData);
+ 
+  const { username, password, givenname, familyname } = body;
+  const attributesList = [
+    attributes('email', username),
+    attributes('given_name', givenname),
+    attributes('family_name', familyname),
+  ];
+ 
+  const cognitoAttributeList = attributesList.map(
+    (element) => new CognitoUserAttribute(element),
+  );
+ 
+  userPool.signUp(
+    username,
+    password,
+    cognitoAttributeList,
+    null,
+    (err, res) => {
+      if (err) {
+        callback(err);
+        return;
+      }
+ 
+      const data = {
+        user_id: res.userSub,
+        email: res.username,
+        user_confirmed: res.userConfirmed,
+      };
+ 
+      callback(null, data);
+    },
+  );
+};
+ 
+export default signup;
+```
+
+## The Result in the Postman
+
+![Postman signup result](public/signup1.webp)
+
+## 6 Digit OTP For Email Verification
+
+Then you will receive the 6 Digit OTP for email verification as shown below in the screenshot.
+
+![Email OTP](public/signup2.webp)
+
+If you want you can customize your email messages. So when a user sign ups he will get an email to confirm his account. You can customize that message.
+
+This is it for the signup scope now. We will take a look at signup email verification in the next article.
+
+## References
+
+- https://github.com/elie-tdev/express-amazon-cognito/tree/cognito-signup
+- https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-social-idp.html#cognito-user-pools-social-idp-step-1

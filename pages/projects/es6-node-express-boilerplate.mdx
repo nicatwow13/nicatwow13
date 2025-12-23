@@ -1,6 +1,334 @@
-import ProjectDetail from "../../components/ProjectDetail"
-import { projects } from "../../lib/projectsData.js"
+import { FaNodeJs } from "react-icons/fa"
+import { SiExpress, SiBabel, SiEslint, SiPrettier, SiNodemon } from "react-icons/si"
 
 # ES6 Node-Express Boilerplate
 
-<ProjectDetail project={projects.find((p) => p.slug === "es6-node-express-boilerplate")} />
+Let's set up an Express.js app using ES6. I will be using the Babel compiler to compile our ES6 code to ES5. Babel is a JavaScript compiler that enables one use next generation JavaScript, today. This Tutorial assumes that you have installed the Node Package Manager(NPM) and the Node.js Engine in your development environment. If you do not have Node.js installed, you can download and install it from the [Node.js website](https://nodejs.org/en). Also, you can download the full codebase here(opens in a new tab) if you are interested in this es6 node-express boilerplate.
+
+<div style={{ display: "flex", flexWrap: "wrap", gap: "8px", margin: "12px 0" }}>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <FaNodeJs style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>Node.js</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiExpress style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>Express.js</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiNodemon style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>Nodemon</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiBabel style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>Babel</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiEslint style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>ESLint</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiPrettier style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>Prettier</span>
+  </span>
+</div>
+
+## Step 1: Set up the project
+
+1. Create a new directory for your project and navigate to it.
+2. Initialize a new Node.js project by running the following command in your terminal:
+
+```bash copy
+npm init -y
+```
+
+## Step 2: Install dependencies
+
+Install Express and other required packages by running the following command:
+
+```bash copy
+npm install express
+```
+
+## Step 3: Configure Babel
+
+1. Install Babel and the necessary plugins by running the following command:
+
+```bash copy
+npm install --save-dev @babel/core @babel/preset-env @babel/register
+```
+
+2. Create a file named .babelrc in the root directory of your project and add the following content:
+
+```json filename=".babelrc.js" copy
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+## Step 4: Create the Express app
+
+1. Create a file named app.js in the root directory of your project.
+2. Add the following code to app.js to set up a basic Express application:
+
+```js filename="app.js" copy
+import express from 'express';
+ 
+const app = express();
+ 
+// Define routes and middleware here
+ 
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
+```
+
+In your terminal, run the following command to start the server:
+
+```bash copy
+node -r @babel/register app.js
+```
+
+## Step 5: Install nodemon
+
+1. Install nodemon as a development dependency by running the following command in your project's root directory:
+
+```bash copy
+npm install --save-dev nodemon
+```
+
+2. Open your project's package.json file and modify the "scripts" section to include a new script called "start" with the command to run the server using nodemon (`"start": "nodemon --exec babel-node app.js"`). Your package.json file should look like this(opens in a new tab):
+
+```json filename="package.json" copy
+{
+  "name": "express-amazon-cognito",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node app.js",
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/node": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
+    "@babel/register": "^7.21.0",
+    "nodemon": "^2.0.22"
+  }
+}
+```
+
+
+3. Save the changes to package.json.
+4. Open your terminal and navigate to your project's root directory.
+5. Start the server using the following command:
+
+```bash copy
+npm start
+# or
+yarn start
+```
+
+Now, nodemon will automatically monitor your files for changes and restart the server whenever you save changes to your code.
+
+## Step 6: Set up Prettier and ESLint
+
+1. Install the necessary packages as dev dependencies:
+
+```bash copy
+npm install --save-dev prettier eslint eslint-config-prettier eslint-plugin-prettier
+```
+
+2. Create an ESLint configuration file by running the following command and following the prompts:
+
+```bash copy
+npx eslint --init
+```
+
+This command will guide you through setting up ESLint. Make the following selections when prompted:
+
+- How would you like to configure ESLint? -> Use a popular style guide  
+- Which style guide do you want to follow? -> Airbnb  
+- Do you use TypeScript? -> No  
+- Where will your code run? -> Node  
+- How would you like to define a style for your project? -> Use a configuration file  
+- Which format do you want your config file to be in? -> JavaScript  
+
+3. Install the necessary Babel ESLint plugin:
+
+```bash copy
+npm install --save-dev babel-eslint
+```
+
+4. Open the .eslintrc.js file that was created in your project's root directory. Modify the configuration file to extend the plugin:prettier/recommended configuration and set the parser option to babel-eslint. It should look something like this(source file(opens in a new tab)):
+
+```js filename=".eslintrc.js" copy
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: ['airbnb-base', 'plugin:prettier/recommended'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  rules: {
+    'prettier/prettier': 'error',
+  },
+};
+```
+
+5. Create a .prettierrc file(opens in a new tab) in your project's root directory and specify your desired Prettier formatting rules.
+
+```json filename=".prettierrc.js" copy
+{
+  "singleQuote": true,
+  "trailingComma": "es5"
+}
+```
+
+6. Add a Prettier script to your package.json file's "scripts" section:
+
+```json filename="package.json" copy
+"scripts": {
+  "prettier": "prettier --write '**/*.{js,json}'"
+}
+```
+
+7. Now you can run ESLint and Prettier on your project. For example, to run ESLint on your entire project, use the following command:
+
+```bash copy
+npx eslint .
+```
+
+8. To format your code with Prettier, run the following command:
+
+```bash copy
+npm run prettier
+```
+
+Feel free to adjust the ESLint and Prettier configurations to meet your specific project requirements.
+
+## Step 7: Set up env
+
+1. Install the dotenv package, which allows you to load environment variables from a .env file:
+
+```bash copy
+npm install dotenv
+```
+
+2. Create a .env file in your project's root directory. Add the following line to the .env file, specifying the desired port number:
+
+```env copy
+PORT=3000
+```
+
+3. In your main entry file (e.g., app.js or index.js), import the dotenv package using ES6 syntax at the top of the file:
+
+```js copy
+import dotenv from 'dotenv';
+```
+
+4. Load the environment variables from the .env file by invoking the config method on the dotenv object:
+
+```js copy
+dotenv.config();
+```
+
+5. Update the code where you define the port for your Express.js server. Use destructuring to extract the PORT variable from process.env:
+
+```js copy
+const port = process.env.PORT || 3000;
+```
+
+6. Start your Express.js server using the port variable:
+
+```js copy
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+```
+
+Now your Express.js server will read the port number from the .env file using ES6 syntax.
+
+You can adjust the code and syntax to match your specific project structure and requirements. You can download the full codebase here(opens in a new tab) for this article.

@@ -1,6 +1,174 @@
-import ProjectDetail from "../../components/ProjectDetail"
-import { projects } from "../../lib/projectsData.js"
+import { FaReact, FaBolt } from "react-icons/fa"
+import { SiTailwindcss, SiTypescript, SiVite, SiPnpm } from "react-icons/si"
 
 # Widgets Library
 
-<ProjectDetail project={projects.find((p) => p.slug === "widgets-library")} />
+I've developed a robust React Widgets Library tailored specifically for grocery retailer websites. Rigorous testing has been conducted on major players in the grocery industry, and the widgets are currently deployed on numerous grocery websites. Although I can't share the complete codebase at the moment, I'm in the process of creating a dedicated page on my portfolio site to showcase this project. Additionally, I'm working on another project, a simpler one, which I plan to share in 2024.
+
+<div style={{ display: "flex", flexWrap: "wrap", gap: "8px", margin: "12px 0" }}>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <FaReact style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>React</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <FaBolt style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>Emotion</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiTailwindcss style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>TailwindCSS</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiTypescript style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>TypeScript</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiVite style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>Vite</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <SiPnpm style={{ width: 14, height: 14, color: "currentColor" }} aria-hidden />
+    <span>PNPM</span>
+  </span>
+  <span
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      borderRadius: "999px",
+      border: "1px solid rgba(15, 23, 42, 0.1)",
+      background: "linear-gradient(120deg, rgba(59,130,246,0.12), rgba(16,185,129,0.1))",
+      padding: "6px 10px",
+      fontSize: "12px",
+      color: "inherit"
+    }}
+  >
+    <span style={{ width: 14, height: 14, color: "currentColor", display: "inline-flex" }} aria-hidden>[W]</span>
+    <span>Widget</span>
+  </span>
+</div>
+
+![Widgets library preview](public/widgets-library.webp)
+
+## Introduction
+
+The Widgets are a collection of UI components that are designed to be added to web pages in order to provide e-commerce functionality to website users. The Widgets are built using React, TypeScript and are actively supported to ensure that they are accessible, responsive, and performant. The library is designed to be plug-and-play, so that you can easily add the components to your website and customize them to fit your brand.
+
+## Get Started
+
+To get started with my component library, you can:
+
+- Download the distribution files from our CDN.
+
+```html copy
+<script src="https://xxxx.cloudfront.net/dist/xxx-widget-library.umd.js"></script>
+<script src="https://xxxx.cloudfront.net/dist/xxx-widget-library.umd.js.map"></script>
+<link rel="stylesheet" href="https://xxx.cloudfront.net/dist/style.css" />
+```
+- Add the js bundle and associated dependencies to your framework/web app (this may vary depending on your framework).
+
+  The library is exported as a UMD that can directly be referenced as a script file in your framework.
+
+  ```html copy
+  <script src="./dist/xxx-widget-library.umd.js"></script>
+  ```
+
+  The library relies on React and React Dom as a depency as a result, it also needs to be added to your project.
+
+  ```html copy
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  ```
+
+- Use the components by referencing them as native HTML elements in your markup.
+
+```html copy
+<html lang="en">
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+    <main>
+      <h1>Example Markup</h1>
+      <xxx-auth-widget></xxx-auth-widget>
+    </main>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="./dist/xxx-widget-library.umd.js"></script>
+  </body>
+</html>
+```
+
+I will be unveiling the Widget Development Kit next year as I mentioned first. Welcome your idea and feedback! Stay tuned for updates.

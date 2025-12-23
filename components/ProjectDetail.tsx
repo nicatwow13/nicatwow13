@@ -18,6 +18,22 @@ type SkillTagProps = {
   label: string
 }
 
+const CodeSnippet = ({ code, label }: { code: string; label: string }) => {
+  return (
+    <div className={styles.code_shell}>
+      <div className={styles.code_header}>
+        <span className={`${styles.code_dot} ${styles.code_dot_red}`} aria-hidden />
+        <span className={`${styles.code_dot} ${styles.code_dot_yellow}`} aria-hidden />
+        <span className={`${styles.code_dot} ${styles.code_dot_green}`} aria-hidden />
+        <span className={styles.code_filename}>{label}</span>
+      </div>
+      <pre className={styles.code_block}>
+        <code>{code}</code>
+      </pre>
+    </div>
+  )
+}
+
 const SkillTag = ({ icon, label }: SkillTagProps) => {
   const Icon = icon && icon in skillIconMap ? skillIconMap[icon as keyof typeof skillIconMap] : FiTool
   return (
@@ -61,9 +77,7 @@ export default function ProjectDetail({ project }: { project?: Project }) {
                 <div className={styles.highlight_body}>
                   <span>{item.text}</span>
                   {item.code ? (
-                    <pre className={styles.code_block}>
-                      <code>{item.code}</code>
-                    </pre>
+                    <CodeSnippet code={item.code} label={`snippet-${idx + 1}.ts`} />
                   ) : null}
                 </div>
               </li>

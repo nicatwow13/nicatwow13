@@ -4,16 +4,10 @@
     "projects":  "Projects",
     "contactme":  "Contact Me",
     "certifications":  "Certifications",
-    "another":  "Another Page",
-    "advanced":  "Advanced (A Folder)",
-    "about":  {
-                  "title":  "About",
-                  "type":  "page"
-              },
-    "contact":  {
-                    "title":  "Contact",
-                    "type":  "page",
-                    "href":  "https://twitter.com/shuding_",
-                    "newWindow":  true
-                }
+    "resume": {
+        "title": "Resume",
+        "type": "page",
+        "href": "https://drive.google.com/file/d/1Yl6rGGocui2-yv7PxgYzbLSWqAFHccYI/view",
+        "newWindow": true
+    }
 }
