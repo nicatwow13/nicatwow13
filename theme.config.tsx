@@ -12,17 +12,19 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const config: DocsThemeConfig = {
   logo: (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-      <img
-        src="/Malik.png"
-        alt="Malik Johnson logo"
-        style={{
-          height: 'auto',
-          width: 67,
-          objectFit: 'contain',
-          borderRadius: '12px'
-        }}
-      />
+    <div
+      className="logo-text"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '10px',
+        marginLeft: '8px',
+        fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+        fontWeight: 700,
+        color: 'var(--logo-text-base)',
+      }}
+    >
+      <span style={{ fontSize: '18px', letterSpacing: '0.3px' }}>Malik Johnson</span>
     </div>
   ),
   project: {

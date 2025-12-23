@@ -97,3 +97,13 @@ body.sidebar-collapsed .nextra-content {
   opacity: 1 !important;
   visibility: visible !important;
 }
+
+.logo-text {
+  --logo-text-base: #0b1220;
+  --logo-text-secondary: #1e293b;
+}
+
+.dark .logo-text {
+  --logo-text-base: #e2e8f0;
+  --logo-text-secondary: #cbd5e1;
+}
